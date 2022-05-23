@@ -1,0 +1,680 @@
+[
+    {
+    "amount": "879.17",
+    "category": "Debit Payment",
+    "customerName": "Glen M. Skipper",
+    "time": "2017-12-01 20:00:00"
+    },
+    {
+    "amount": "445.17",
+    "category": "Bill",
+    "customerName": "Sophie Olga",
+    "time": "2017-12-02 12:00:00"
+    },
+    {
+    "amount": "179.31",
+    "category": "Debit Payment",
+    "customerName": "Abhay Ganymede",
+    "time": "2017-12-02 23:00:00"
+    },
+    {
+    "amount": "104.28",
+    "category": "ATM",
+    "customerName": "Sophie Olga",
+    "time": "2017-12-03 00:00:00"
+    },
+    {
+    "amount": "412.27",
+    "category": "ATM",
+    "customerName": "Michael P. Taylor",
+    "time": "2017-12-03 11:00:00"
+    },
+    {
+    "amount": "177.32",
+    "category": "Debit Payment",
+    "customerName": "Linda Patricia",
+    "time": "2017-12-03 20:00:00"
+    },
+    {
+    "amount": "32.79",
+    "category": "ATM",
+    "customerName": "David E. Hendricks",
+    "time": "2017-12-05 09:00:00"
+    },
+    {
+    "amount": "559.11",
+    "category": "Bill",
+    "customerName": "Linda Patricia",
+    "time": "2017-12-05 10:00:00"
+    },
+    {
+    "amount": "218.63",
+    "category": "Debit Payment",
+    "customerName": "Issy Anah",
+    "time": "2017-12-05 17:00:00"
+    },
+    {
+    "amount": "445.62",
+    "category": "Bill",
+    "customerName": "Walerian Chijindum",
+    "time": "2017-12-05 18:00:00"
+    },
+    {
+    "amount": "150.00",
+    "category": "ATM",
+    "customerName": "Linda Patricia",
+    "time": "2017-11-29 10:00:00"
+    },
+    {
+    "amount": "343.82",
+    "category": "ATM",
+    "customerName": "Issy Anah",
+    "time": "2017-12-06 04:00:00"
+    },
+    {
+    "amount": "234.86",
+    "category": "ATM",
+    "customerName": "Viggo Lau",
+    "time": "2017-12-06 14:00:00"
+    },
+    {
+    "amount": "293.3",
+    "category": "ATM",
+    "customerName": "Viggo Lau",
+    "time": "2017-12-07 09:00:00"
+    },
+    {
+    "amount": "423.07",
+    "category": "Bill",
+    "customerName": "Glen M. Skipper",
+    "time": "2017-12-07 10:00:00"
+    },
+    {
+    "amount": "361.28",
+    "category": "Bill",
+    "customerName": "Michael P. Taylor",
+    "time": "2017-12-07 13:00:00"
+    },
+    {
+    "amount": "449.33",
+    "category": "Bill",
+    "customerName": "Sophie Olga",
+    "time": "2017-12-07 18:00:00"
+    },
+    {
+    "amount": "639.12",
+    "category": "Debit Payment",
+    "customerName": "Abhay Ganymede",
+    "time": "2017-12-08 06:00:00"
+    },
+    {
+    "amount": "305.6",
+    "category": "Debit Payment",
+    "customerName": "David E. Hendricks",
+    "time": "2017-12-08 19:00:00"
+    },
+    {
+    "amount": "248.44",
+    "category": "ATM",
+    "customerName": "Sophie Olga",
+    "time": "2017-12-09 07:00:00"
+    },
+    {
+    "amount": "58.57",
+    "category": "ATM",
+    "customerName": "Linda Patricia",
+    "time": "2017-12-09 11:00:00"
+    },
+    {
+    "amount": "546.04",
+    "category": "Debit Payment",
+    "customerName": "David E. Hendricks",
+    "time": "2017-12-10 02:00:00"
+    },
+    {
+    "amount": "467.35",
+    "category": "Bill",
+    "customerName": "Michael P. Taylor",
+    "time": "2017-12-10 07:00:00"
+    },
+    {
+    "amount": "468.64",
+    "category": "ATM",
+    "customerName": "David E. Hendricks",
+    "time": "2017-12-10 10:00:00"
+    },
+    {
+    "amount": "304.6",
+    "category": "ATM",
+    "customerName": "Glen M. Skipper",
+    "time": "2017-12-10 14:00:00"
+    },
+    {
+    "amount": "677.34",
+    "category": "Debit Payment",
+    "customerName": "Michael P. Taylor",
+    "time": "2017-12-10 18:00:00"
+    },
+    {
+    "amount": "405.79",
+    "category": "Bill",
+    "customerName": "Myles Kassidy",
+    "time": "2017-12-10 22:00:00"
+    },
+    {
+    "amount": "300.61",
+    "category": "ATM",
+    "customerName": "Glen M. Skipper",
+    "time": "2017-11-20 14:00:00"
+    },
+    {
+    "amount": "978.0",
+    "category": "Bill",
+    "customerName": "Abhay Ganymede",
+    "time": "2017-12-11 09:00:00"
+    },
+    {
+    "amount": "496.21",
+    "category": "Debit Payment",
+    "customerName": "Walerian Chijindum",
+    "time": "2017-12-11 12:00:00"
+    },
+    {
+    "amount": "75.76",
+    "category": "ATM",
+    "customerName": "Myles Kassidy",
+    "time": "2017-12-11 13:00:00"
+    },
+    {
+    "amount": "157.46",
+    "category": "Bill",
+    "customerName": "Sophie Olga",
+    "time": "2017-12-12 01:00:00"
+    },
+    {
+    "amount": "465.58",
+    "category": "ATM",
+    "customerName": "Abhay Ganymede",
+    "time": "2017-12-12 16:00:00"
+    },
+    {
+    "amount": "326.42",
+    "category": "Debit Payment",
+    "customerName": "Glen M. Skipper",
+    "time": "2017-12-12 23:00:00"
+    },
+    {
+    "amount": "930.7",
+    "category": "Bill",
+    "customerName": "Issy Anah",
+    "time": "2017-12-13 09:00:00"
+    },
+    {
+    "amount": "33.91",
+    "category": "Bill",
+    "customerName": "Sophie Olga",
+    "time": "2017-12-13 23:00:00"
+    },
+    {
+    "amount": "414.34",
+    "category": "ATM",
+    "customerName": "Glen M. Skipper",
+    "time": "2017-12-14 14:00:00"
+    },
+    {
+    "amount": "240.39",
+    "category": "Debit Payment",
+    "customerName": "Linda Patricia",
+    "time": "2017-12-14 20:00:00"
+    },
+    {
+    "amount": "34.25",
+    "category": "ATM",
+    "customerName": "David E. Hendricks",
+    "time": "2017-12-15 00:00:00"
+    },
+    {
+    "amount": "75.97",
+    "category": "Debit Payment",
+    "customerName": "David E. Hendricks",
+    "time": "2017-12-15 02:00:00"
+    },
+    {
+    "amount": "593.13",
+    "category": "Debit Payment",
+    "customerName": "Issy Anah",
+    "time": "2017-12-15 03:00:00"
+    },
+    {
+    "amount": "79.16",
+    "category": "ATM",
+    "customerName": "Walerian Chijindum",
+    "time": "2017-12-15 04:00:00"
+    },
+    {
+    "amount": "970.76",
+    "category": "ATM",
+    "customerName": "Viggo Lau",
+    "time": "2017-12-15 04:00:00"
+    },
+    {
+    "amount": "189.76",
+    "category": "Bill",
+    "customerName": "Walerian Chijindum",
+    "time": "2017-12-15 14:00:00"
+    },
+    {
+    "amount": "811.99",
+    "category": "Debit Payment",
+    "customerName": "Glen M. Skipper",
+    "time": "2017-12-15 16:00:00"
+    },
+    {
+    "amount": "829.11",
+    "category": "Debit Payment",
+    "customerName": "David E. Hendricks",
+    "time": "2017-12-15 16:00:00"
+    },
+    {
+    "amount": "336.68",
+    "category": "Bill",
+    "customerName": "Linda Patricia",
+    "time": "2017-12-15 19:00:00"
+    },
+    {
+    "amount": "3.31",
+    "category": "Bill",
+    "customerName": "Issy Anah",
+    "time": "2017-12-15 21:00:00"
+    },
+    {
+    "amount": "936.51",
+    "category": "Bill",
+    "customerName": "Glen M. Skipper",
+    "time": "2017-12-16 15:00:00"
+    },
+    {
+    "amount": "278.91",
+    "category": "Bill",
+    "customerName": "Issy Anah",
+    "time": "2017-12-16 20:00:00"
+    },
+    {
+    "amount": "649.27",
+    "category": "Debit Payment",
+    "customerName": "Sophie Olga",
+    "time": "2017-12-17 03:00:00"
+    },
+    {
+    "amount": "57.69",
+    "category": "Debit Payment",
+    "customerName": "Abhay Ganymede",
+    "time": "2017-12-17 04:00:00"
+    },
+    {
+    "amount": "784.47",
+    "category": "Bill",
+    "customerName": "Myles Kassidy",
+    "time": "2017-12-17 05:00:00"
+    },
+    {
+    "amount": "319.54",
+    "category": "ATM",
+    "customerName": "Linda Patricia",
+    "time": "2017-12-17 22:00:00"
+    },
+    {
+    "amount": "65.2",
+    "category": "Bill",
+    "customerName": "Viggo Lau",
+    "time": "2017-12-18 01:00:00"
+    },
+    {
+    "amount": "512.49",
+    "category": "Debit Payment",
+    "customerName": "Glen M. Skipper",
+    "time": "2017-12-18 12:00:00"
+    },
+    {
+    "amount": "970.61",
+    "category": "ATM",
+    "customerName": "Michael P. Taylor",
+    "time": "2017-12-19 04:00:00"
+    },
+    {
+    "amount": "373.89",
+    "category": "ATM",
+    "customerName": "Michael P. Taylor",
+    "time": "2017-12-20 00:00:00"
+    },
+    {
+    "amount": "81.12",
+    "category": "Bill",
+    "customerName": "Glen M. Skipper",
+    "time": "2017-12-20 01:00:00"
+    },
+    {
+    "amount": "190.63",
+    "category": "Debit Payment",
+    "customerName": "Sophie Olga",
+    "time": "2017-12-20 01:00:00"
+    },
+    {
+    "amount": "110.92",
+    "category": "ATM",
+    "customerName": "Michael P. Taylor",
+    "time": "2017-12-20 08:00:00"
+    },
+    {
+    "amount": "266.2",
+    "category": "Bill",
+    "customerName": "David E. Hendricks",
+    "time": "2017-12-20 16:00:00"
+    },
+    {
+    "amount": "787.61",
+    "category": "Bill",
+    "customerName": "Abhay Ganymede",
+    "time": "2017-12-20 20:00:00"
+    },
+    {
+    "amount": "496.0",
+    "category": "Debit Payment",
+    "customerName": "Viggo Lau",
+    "time": "2017-12-21 12:00:00"
+    },
+    {
+    "amount": "784.75",
+    "category": "ATM",
+    "customerName": "Glen M. Skipper",
+    "time": "2017-12-21 21:00:00"
+    },
+    {
+    "amount": "82.19",
+    "category": "Debit Payment",
+    "customerName": "Walerian Chijindum",
+    "time": "2017-12-22 02:00:00"
+    },
+    {
+    "amount": "485.24",
+    "category": "Bill",
+    "customerName": "David E. Hendricks",
+    "time": "2017-12-22 06:00:00"
+    },
+    {
+    "amount": "389.31",
+    "category": "Bill",
+    "customerName": "Linda Patricia",
+    "time": "2017-12-22 16:00:00"
+    },
+    {
+    "amount": "1278.91",
+    "category": "Bill",
+    "customerName": "Issy Anah",
+    "time": "2017-11-25 20:00:00"
+    },
+    {
+    "amount": "131.89",
+    "category": "Bill",
+    "customerName": "Issy Anah",
+    "time": "2017-12-22 21:00:00"
+    },
+    {
+    "amount": "743.58",
+    "category": "ATM",
+    "customerName": "Myles Kassidy",
+    "time": "2017-12-23 13:00:00"
+    },
+    {
+    "amount": "32.22",
+    "category": "ATM",
+    "customerName": "Viggo Lau",
+    "time": "2017-12-23 23:00:00"
+    },
+    {
+    "amount": "48.34",
+    "category": "ATM",
+    "customerName": "Myles Kassidy",
+    "time": "2017-12-24 10:00:00"
+    },
+    {
+    "amount": "43.34",
+    "category": "Bill",
+    "customerName": "Linda Patricia",
+    "time": "2017-12-24 14:00:00"
+    },
+    {
+    "amount": "329.99",
+    "category": "Bill",
+    "customerName": "Sophie Olga",
+    "time": "2017-12-24 22:00:00"
+    },
+    {
+    "amount": "367.14",
+    "category": "ATM",
+    "customerName": "Sophie Olga",
+    "time": "2017-12-25 03:00:00"
+    },
+    {
+    "amount": "527.62",
+    "category": "Debit Payment",
+    "customerName": "Linda Patricia",
+    "time": "2017-12-25 12:00:00"
+    },
+    {
+    "amount": "307.55",
+    "category": "ATM",
+    "customerName": "Michael P. Taylor",
+    "time": "2017-12-25 15:00:00"
+    },
+    {
+    "amount": "574.59",
+    "category": "ATM",
+    "customerName": "Issy Anah",
+    "time": "2017-12-25 17:00:00"
+    },
+    {
+    "amount": "494.61",
+    "category": "Debit Payment",
+    "customerName": "Sophie Olga",
+    "time": "2017-12-25 19:00:00"
+    },
+    {
+    "amount": "600.37",
+    "category": "ATM",
+    "customerName": "Walerian Chijindum",
+    "time": "2017-12-25 19:00:00"
+    },
+    {
+    "amount": "842.41",
+    "category": "ATM",
+    "customerName": "Linda Patricia",
+    "time": "2017-12-25 22:00:00"
+    },
+    {
+    "amount": "176.48",
+    "category": "ATM",
+    "customerName": "Sophie Olga",
+    "time": "2017-12-26 08:00:00"
+    },
+    {
+    "amount": "428.77",
+    "category": "ATM",
+    "customerName": "Michael P. Taylor",
+    "time": "2017-12-26 13:00:00"
+    },
+    {
+    "amount": "628.35",
+    "category": "ATM",
+    "customerName": "David E. Hendricks",
+    "time": "2017-12-26 17:00:00"
+    },
+    {
+    "amount": "86.05",
+    "category": "ATM",
+    "customerName": "Myles Kassidy",
+    "time": "2017-12-26 21:00:00"
+    },
+    {
+    "amount": "954.95",
+    "category": "Bill",
+    "customerName": "Sophie Olga",
+    "time": "2017-12-26 21:00:00"
+    },
+    {
+    "amount": "255.31",
+    "category": "Debit Payment",
+    "customerName": "Linda Patricia",
+    "time": "2017-12-27 01:00:00"
+    },
+    {
+    "amount": "414.17",
+    "category": "ATM",
+    "customerName": "Glen M. Skipper",
+    "time": "2017-12-27 02:00:00"
+    },
+    {
+    "amount": "887.34",
+    "category": "Bill",
+    "customerName": "Viggo Lau",
+    "time": "2017-12-27 02:00:00"
+    },
+    {
+    "amount": "552.25",
+    "category": "Bill",
+    "customerName": "Myles Kassidy",
+    "time": "2017-12-27 07:00:00"
+    },
+    {
+    "amount": "779.71",
+    "category": "ATM",
+    "customerName": "Abhay Ganymede",
+    "time": "2017-12-27 13:00:00"
+    },
+    {
+    "amount": "243.15",
+    "category": "Debit Payment",
+    "customerName": "Linda Patricia",
+    "time": "2017-12-27 16:00:00"
+    },
+    {
+    "amount": "988.24",
+    "category": "Bill",
+    "customerName": "Issy Anah",
+    "time": "2017-12-27 20:00:00"
+    },
+    {
+    "amount": "343.71",
+    "category": "Bill",
+    "customerName": "Viggo Lau",
+    "time": "2017-12-27 22:00:00"
+    },
+    {
+    "amount": "311.58",
+    "category": "ATM",
+    "customerName": "Linda Patricia",
+    "time": "2017-12-28 15:00:00"
+    },
+    {
+    "amount": "335.88",
+    "category": "Debit Payment",
+    "customerName": "Sophie Olga",
+    "time": "2017-12-28 17:00:00"
+    },
+    {
+    "amount": "311.59",
+    "category": "Debit Payment",
+    "customerName": "Michael P. Taylor",
+    "time": "2017-12-28 18:00:00"
+    },
+    {
+    "amount": "522.79",
+    "category": "Bill",
+    "customerName": "Myles Kassidy",
+    "time": "2017-12-28 20:00:00"
+    },
+    {
+    "amount": "878.28",
+    "category": "Debit Payment",
+    "customerName": "Walerian Chijindum",
+    "time": "2017-12-28 20:00:00"
+    },
+    {
+    "amount": "782.63",
+    "category": "Bill",
+    "customerName": "Walerian Chijindum",
+    "time": "2017-12-29 08:00:00"
+    },
+    {
+    "amount": "1000.00",
+    "category": "ATM",
+    "customerName": "Sophie Olga",
+    "time": "2017-11-25 06:00:00"
+    },
+    {
+    "amount": "507.04",
+    "category": "Debit Payment",
+    "customerName": "Abhay Ganymede",
+    "time": "2017-12-29 11:00:00"
+    },
+    {
+    "amount": "128.45",
+    "category": "ATM",
+    "customerName": "David E. Hendricks",
+    "time": "2017-12-29 13:00:00"
+    },
+    {
+    "amount": "51.96",
+    "category": "Bill",
+    "customerName": "Sophie Olga",
+    "time": "2017-12-29 16:00:00"
+    },
+    {
+    "amount": "604.8",
+    "category": "Bill",
+    "customerName": "Linda Patricia",
+    "time": "2017-12-29 20:00:00"
+    },
+    {
+    "amount": "985.29",
+    "category": "Debit Payment",
+    "customerName": "Viggo Lau",
+    "time": "2017-12-29 22:00:00"
+    },
+    {
+    "amount": "169.29",
+    "category": "Bill",
+    "customerName": "Abhay Ganymede",
+    "time": "2017-12-30 04:00:00"
+    },
+    {
+    "amount": "25.01",
+    "category": "Bill",
+    "customerName": "Sophie Olga",
+    "time": "2017-12-30 23:00:00"
+    },
+    {
+    "amount": "543.63",
+    "category": "ATM",
+    "customerName": "Linda Patricia",
+    "time": "2017-12-30 23:00:00"
+    },
+    {
+    "amount": "671.41",
+    "category": "ATM",
+    "customerName": "Walerian Chijindum",
+    "time": "2017-12-30 23:00:00"
+    },
+    {
+    "amount": "737.22",
+    "category": "ATM",
+    "customerName": "Issy Anah",
+    "time": "2017-12-30 23:00:00"
+    },
+    {
+    "amount": "565.06",
+    "category": "ATM",
+    "customerName": "Viggo Lau",
+    "time": "2017-12-30 23:00:00"
+    }
+    ]
