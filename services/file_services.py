@@ -15,12 +15,8 @@ def read_config(conf):
     :param conf: Path of configuration file i.e. CONFIG_FILE
     :return: config: A dictionary containing the content of config file
     """
-    try:
-        config = configparser.ConfigParser()
-        config.read(conf)
-    except KeyError as err:
-        print(err)
-        print(f'The {conf} is not valid.')
+    config = configparser.ConfigParser()
+    config.read(conf)
     return config
 
 
@@ -30,13 +26,9 @@ def read_json_file(file_path):
     :param file_path: The path of json file
     :return: A dictionary containing the content of read file
     """
-    file_contents = {}  # this dict will be returned.
-    try:
-        with open(file_path, 'r') as data_file:
-            file_contents = json.load(data_file)
-    except IOError as error:
-        print(error)
-        print("IOError error: unable to open ", file_path, ". Terminating execution.")
-    finally:
-        data_file.close()
+    file_full_path = os.path.join(BASE_DIR, file_path)
+    if not os.path.exists(file_full_path):
+        raise OSError(f'Unable to open: {file_full_path}')
+    with open(file_full_path, 'r') as data_file:
+        file_contents = json.load(data_file)
     return file_contents

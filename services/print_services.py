@@ -1,3 +1,7 @@
+from services import financial_services
+from services import utility_services
+
+
 def print_header_menu(headers, menu_items):
     """
     This function prints the header and the main menu items.
@@ -5,7 +9,6 @@ def print_header_menu(headers, menu_items):
     :param menu_items: A dict containing items of menu section in config file.
     :return: None
     """
-    print("\n\n\n")
     print_header(headers)
     print_menu(menu_items)
 
@@ -41,12 +44,65 @@ def print_alerts(alerts):
         print(alert)
 
 
-def print_customers_balance(deposits, withdrawals):
+def print_table_divider(first_col_size, second_col_size, adjuster):
+    """
+    This functions print a vertical divider.
+    :param first_col_size: size of first column.
+    :param second_col_size: size of second column.
+    :param adjuster: add extra needed '-' to fill space.
+    :return: None
+    """
+    print("|", end="")
+    for i in range(first_col_size + second_col_size + adjuster):
+        print("-", end="")
+    print("|")
+
+
+def print_customers_balance(deposits, withdrawals, config_dict):
     """
     This function prints expected output for Task 1.
     :param deposits: A dictionary containing the content of deposits file.
     :param withdrawals: A dictionary containing the content of withdrawals file.
+    :param config_dict: A dict containing items of task_1 section in config file.
     :return is_finished: if True: program should be finished,
                          if False: we need to show main menu again.
     """
-    return False
+    unique_customers_dict = financial_services.calc_customers_balance(deposits, withdrawals)
+
+    if config_dict['sorted'] == "1":
+        if config_dict['descending'] == "1":
+            unique_customers_dict = utility_services.sort_dict_by_value(unique_customers_dict, True)
+        else:
+            unique_customers_dict = utility_services.sort_dict_by_value(unique_customers_dict, False)
+    print(config_dict['result_title'])
+
+    customer_col_title = config_dict['customer_col_title']  # title of customer column
+    customer_col_size = int(config_dict['customer_col_size'])  # size of customer column
+    balance_col_title = config_dict['balance_col_title']  # title of balance Column
+    balance_col_size = int(config_dict['balance_col_size'])  # size of balance Column
+    adjuster = int(config_dict['adjuster'])  # Adjust extra space in divider
+
+    print_table_divider(customer_col_size, balance_col_size, adjuster)
+    print("|", customer_col_title.ljust(customer_col_size), "|",
+          str(balance_col_title).ljust(balance_col_size), "|")
+    print_table_divider(customer_col_size, balance_col_size, adjuster)
+    for unique_customer_name, unique_customer_balance in unique_customers_dict.items():
+        print("|", unique_customer_name.ljust(customer_col_size),
+              "|",
+              str(unique_customer_balance).ljust(balance_col_size),
+              "|")
+    print_table_divider(customer_col_size, balance_col_size, adjuster)
+
+
+def print_are_you_done():
+    """
+    Asking user for exit
+    :return: a bool determining if user want to exit or not
+    """
+    print("Please enter 'B' letter for backing to main menu.")
+    print("or any other letters to exit.")
+    user_input = input("your choice: ")
+    if user_input == "B" or user_input == "b":
+        return False
+    else:
+        return True
