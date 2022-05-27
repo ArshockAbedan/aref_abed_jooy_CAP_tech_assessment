@@ -15,6 +15,9 @@ def test_read_config():
     assert my_config.has_section("user_input")
     assert my_config.has_option("user_input", "question_text")
     assert my_config.has_section("wrong_input")
+    assert my_config.has_section("task_1")
+    assert my_config.has_section("task_2")
+    assert my_config.has_section("task_3")
 
 
 def test_read_json_file():

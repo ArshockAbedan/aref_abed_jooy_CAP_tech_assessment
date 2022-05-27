@@ -112,12 +112,12 @@ def print_highest_total_spender_per_category(withdrawals, config_dict):
     """
     highest_spender_in_each_category_dict = \
         financial_services.calc_highest_total_spender_per_category(withdrawals)
-    print("\n" + config_dict['result_title'] + "\n")
-    i = 1
+    print(config_dict['result_title'] + "\n")
+    i = 1 # counter for categories
     for category, [customer, amount] in highest_spender_in_each_category_dict.items():
         print(str(i) + "- In the '" + category +
               "' category: '" + customer + "' spends $" +
-              str(amount) + " CAD.\n")
+              str(amount) + " totally.\n")
         i += 1
 
 
