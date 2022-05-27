@@ -1,3 +1,13 @@
+"""
+@File    :   file_services.py
+@Contact :   arefabedjooy@gmail.com
+@License :   (C)Copyright 2020-2022
+
+@Modify Time          @Author        @Version      @Description
+-----------------   ------------     --------    --------------------
+5/25/2022 7:54 PM   Aref Abedjooy      1.0       Services related to file
+"""
+
 import configparser
 import json
 import os

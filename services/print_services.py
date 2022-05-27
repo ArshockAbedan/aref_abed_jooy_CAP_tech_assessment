@@ -1,3 +1,13 @@
+"""
+@File    :   print_services.py
+@Contact :   arefabedjooy@gmail.com
+@License :   (C)Copyright 2020-2022
+
+@Modify Time          @Author        @Version      @Description
+-----------------   ------------     --------    --------------------
+5/25/2022 8:07 PM  Aref Abedjooy      1.0       Services related to print outputs
+"""
+
 from services import financial_services
 from services import utility_services
 
@@ -64,8 +74,7 @@ def print_customers_balance(deposits, withdrawals, config_dict):
     :param deposits: A dictionary containing the content of deposits file.
     :param withdrawals: A dictionary containing the content of withdrawals file.
     :param config_dict: A dict containing items of task_1 section in config file.
-    :return is_finished: if True: program should be finished,
-                         if False: we need to show main menu again.
+    :return: None
     """
     unique_customers_dict = financial_services.calc_customers_balance(deposits, withdrawals)
 
@@ -94,15 +103,35 @@ def print_customers_balance(deposits, withdrawals, config_dict):
     print_table_divider(customer_col_size, balance_col_size, adjuster)
 
 
+def print_highest_total_spender_per_category(withdrawals, config_dict):
+    """
+    This function prints expected output for Task 2.
+    :param withdrawals: A dictionary containing the content of withdrawals file.
+    :param config_dict: A dict containing items of task_2 section in config file.
+    :return: None
+    """
+    highest_spender_in_each_category_dict = \
+        financial_services.calc_highest_total_spender_per_category(withdrawals)
+    print("\n" + config_dict['result_title'] + "\n")
+    i = 1
+    for category, [customer, amount] in highest_spender_in_each_category_dict.items():
+        print(str(i) + "- In the '" + category +
+              "' category: '" + customer + "' spends $" +
+              str(amount) + " CAD.\n")
+        i += 1
+
+
 def print_are_you_done():
     """
-    Asking user for exit
-    :return: a bool determining if user want to exit or not
+    print a question and asking user for if he or she want to exit or not.
+    :return is_done: a bool determining if user want to exit or not,
+                     True means he or she wants to exit.
     """
-    print("Please enter 'B' letter for backing to main menu.")
+    print("\nPlease enter 'B' letter for backing to main menu.")
     print("or any other letters to exit.")
     user_input = input("your choice: ")
     if user_input == "B" or user_input == "b":
-        return False
+        is_done = False
     else:
-        return True
+        is_done = True
+    return is_done
