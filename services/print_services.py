@@ -144,7 +144,8 @@ def print_over_drafted_customers(deposits, withdrawals, config_dict):
     :param config_dict: A dict containing items of task_3 section in config file.
     :return: None
     """
-    over_drafted_customers_dict = financial_services.calc_over_drafted_customers(deposits, withdrawals)
+    over_drafted_customers_dict = \
+        financial_services.calc_over_drafted_customers(deposits, withdrawals)
     print(config_dict['result_title'] + "\n")
 
     i = 1  # counter for customer

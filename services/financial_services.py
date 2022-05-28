@@ -154,6 +154,7 @@ def get_all_transactions_per_customer(deposits, withdrawals, customer):
                                                first: transaction_time, second: transaction_details
     """
     customer_transactions = {}
+
     for withdrawal in withdrawals:
         customer_name = withdrawal['customerName']
         amount = decimal.Decimal(withdrawal['amount'])
@@ -169,6 +170,8 @@ def get_all_transactions_per_customer(deposits, withdrawals, customer):
         time = datetime.fromisoformat(deposit['time'])
         if customer_name == customer:
             customer_transactions[time] = [amount, "deposit", time_str]
+
+    # sort all transactions in chronological order
     customer_transactions_sorted_list = sorted(customer_transactions.items(), reverse=False)
     return customer_transactions_sorted_list
 
