@@ -68,6 +68,22 @@ def print_table_divider(first_col_size, second_col_size, adjuster):
     print("|")
 
 
+def print_are_you_done():
+    """
+    print a question and asking user for if he or she want to exit or not.
+    :return is_done: a bool determining if user want to exit or not,
+                     True means he or she wants to exit.
+    """
+    print("\nPlease enter 'B' letter for backing to main menu.")
+    print("or any other letters to exit.")
+    user_input = input("your choice: ")
+    if user_input == "B" or user_input == "b":
+        is_done = False
+    else:
+        is_done = True
+    return is_done
+
+
 def print_customers_balance(deposits, withdrawals, config_dict):
     """
     This function prints expected output for Task 1.
@@ -116,26 +132,8 @@ def print_highest_total_spender_per_category(withdrawals, config_dict):
 
     i = 1  # counter for categories
     for category, [customer, amount] in highest_spender_in_each_category_dict.items():
-        print(str(i) + "- In the '" + category +
-              "' category: '" + customer + "' spends $" +
-              str(amount) + " totally.\n")
+        print(config_dict['final_msg_per_category'].format(str(i), category, customer, str(amount)))
         i += 1
-
-
-def print_are_you_done():
-    """
-    print a question and asking user for if he or she want to exit or not.
-    :return is_done: a bool determining if user want to exit or not,
-                     True means he or she wants to exit.
-    """
-    print("\nPlease enter 'B' letter for backing to main menu.")
-    print("or any other letters to exit.")
-    user_input = input("your choice: ")
-    if user_input == "B" or user_input == "b":
-        is_done = False
-    else:
-        is_done = True
-    return is_done
 
 
 def print_over_drafted_customers(deposits, withdrawals, config_dict):
@@ -147,5 +145,9 @@ def print_over_drafted_customers(deposits, withdrawals, config_dict):
     :return: None
     """
     over_drafted_customers_dict = financial_services.calc_over_drafted_customers(deposits, withdrawals)
-    print(over_drafted_customers_dict)
+    print(config_dict['result_title'] + "\n")
 
+    i = 1  # counter for customer
+    for customer, [time, amount] in over_drafted_customers_dict.items():
+        print(config_dict['final_msg_per_customer'].format(str(i), customer, str(amount), time))
+        i += 1
