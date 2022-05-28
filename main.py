@@ -13,8 +13,8 @@ from services import file_services, print_services
 def perform_task_1(deposits, withdrawals, task_1_config):
     """
     This function perform Task 1.
-    :param deposits: A dictionary containing the content of deposits file.
-    :param withdrawals: A dictionary containing the content of withdrawals file.
+    :param deposits: A list of dictionaries containing the content of deposits file.
+    :param withdrawals: A list of dictionaries  containing the content of withdrawals file.
     :param task_1_config: A dict containing Items of task_1 section of config file.
     :return is_finished: if True: program should be finished,
                          if False: we need to show main menu again.
@@ -27,7 +27,7 @@ def perform_task_1(deposits, withdrawals, task_1_config):
 def perform_task_2(withdrawals, task_2_config):
     """
      This function perform Task 2.
-    :param withdrawals: A dictionary containing the content of withdrawals file.
+    :param withdrawals: A list of dictionaries containing the content of withdrawals file.
     :param task_2_config: A dict containing Items of task_2 section of config file.
     :return is_finished: if True: program should be finished,
                          if False: we need to show main menu again.

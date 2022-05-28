@@ -11,10 +11,10 @@
 import decimal
 
 
-def get_previous_month_balance(customer_name):
+def get_previous_month_balance(customer):
     """
     This function returns the balance of previous month for the customer.
-    :param customer_name: Name of customer
+    :param customer: Name of customer
     :return previous_balance: the balance of previous month for the customer.
     """
     # for the simplification, it is assumed that all previous balance are zero.
@@ -25,8 +25,8 @@ def get_previous_month_balance(customer_name):
 def calc_customers_balance(deposits, withdrawals):
     """
     This function calculate expected output for task 1.
-    :param deposits: A dictionary containing the content of deposits file.
-    :param withdrawals: A dictionary containing the content of withdrawals file.
+    :param deposits: A list of dictionaries containing the content of deposits file.
+    :param withdrawals: A list of dictionaries containing the content of withdrawals file.
     :return unique_customers: a dictionary containing  all customers who hold a savings account
                               at this bank, and their final account balances at the end of the month.
     """
@@ -55,7 +55,7 @@ def calc_customers_balance(deposits, withdrawals):
 def get_unique_categories(withdrawals):
     """
     This function returns unique categories in withdrawals JSON file.
-    :param withdrawals: A dictionary containing the content of withdrawals file.
+    :param withdrawals: A list of dictionaries containing the content of withdrawals file.
     :return unique_categories: a set containing  all unique categories.
     """
     unique_categories = set()
@@ -68,7 +68,7 @@ def get_unique_categories(withdrawals):
 def get_unique_customers(withdrawals):
     """
     This function returns unique customers in withdrawals JSON file.
-    :param withdrawals: A dictionary containing the content of withdrawals file.
+    :param withdrawals: A list of dictionaries containing the content of withdrawals file.
     :return unique_customers: a set containing  all unique customers.
     """
     unique_customers = set()
@@ -81,7 +81,7 @@ def get_unique_customers(withdrawals):
 def get_unique_customers_by_category(withdrawals, needed_category):
     """
     This function returns unique customers for a category in withdrawals JSON file.
-    :param withdrawals: A dictionary containing the content of withdrawals file.
+    :param withdrawals: A list of dictionaries containing the content of withdrawals file.
     :param needed_category: A category.
     :return unique_customers: a set containing  all unique customers for this category.
     """
@@ -97,7 +97,7 @@ def get_unique_customers_by_category(withdrawals, needed_category):
 def get_total_amount_for_spender_per_category(withdrawals, needed_category, spender):
     """
         This function returns total amount that a spender spends in needed_category in withdrawals JSON file.
-        :param withdrawals: A dictionary containing the content of withdrawals file.
+        :param withdrawals: A list of dictionaries containing the content of withdrawals file.
         :param needed_category: A category.
         :param spender: A customer.
         :return total_amount: total amount that a spender spends in the needed_category.
@@ -115,7 +115,7 @@ def get_total_amount_for_spender_per_category(withdrawals, needed_category, spen
 def calc_highest_total_spender_per_category(withdrawals):
     """
     This function calculate expected output for task 2.
-    :param withdrawals: A dictionary containing the content of withdrawals file.
+    :param withdrawals: A list of dictionaries containing the content of withdrawals file.
     :return highest_spender_in_each_category_dict: a dictionary containing  highest total spender
                                                    in each payment category.
     """

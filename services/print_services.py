@@ -63,7 +63,7 @@ def print_table_divider(first_col_size, second_col_size, adjuster):
     :return: None
     """
     print("|", end="")
-    for i in range(first_col_size + second_col_size + adjuster):
+    for _ in range(first_col_size + second_col_size + adjuster):
         print("-", end="")
     print("|")
 
@@ -71,8 +71,8 @@ def print_table_divider(first_col_size, second_col_size, adjuster):
 def print_customers_balance(deposits, withdrawals, config_dict):
     """
     This function prints expected output for Task 1.
-    :param deposits: A dictionary containing the content of deposits file.
-    :param withdrawals: A dictionary containing the content of withdrawals file.
+    :param deposits: A list of dictionaries containing the content of deposits file.
+    :param withdrawals: A list of dictionaries containing the content of withdrawals file.
     :param config_dict: A dict containing items of task_1 section in config file.
     :return: None
     """
@@ -106,14 +106,15 @@ def print_customers_balance(deposits, withdrawals, config_dict):
 def print_highest_total_spender_per_category(withdrawals, config_dict):
     """
     This function prints expected output for Task 2.
-    :param withdrawals: A dictionary containing the content of withdrawals file.
+    :param withdrawals: A list of dictionaries containing the content of withdrawals file.
     :param config_dict: A dict containing items of task_2 section in config file.
     :return: None
     """
     highest_spender_in_each_category_dict = \
         financial_services.calc_highest_total_spender_per_category(withdrawals)
     print(config_dict['result_title'] + "\n")
-    i = 1 # counter for categories
+
+    i = 1  # counter for categories
     for category, [customer, amount] in highest_spender_in_each_category_dict.items():
         print(str(i) + "- In the '" + category +
               "' category: '" + customer + "' spends $" +

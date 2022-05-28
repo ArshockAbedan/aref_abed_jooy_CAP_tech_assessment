@@ -29,6 +29,6 @@ def test_print_table_divider():
 
 
 def test_print_customers_balance():
-    dict = {}
+    simple_dict = {}
     with pytest.raises(TypeError):
-        assert print_services.print_customers_balance(dict)
+        assert print_services.print_customers_balance(simple_dict)
