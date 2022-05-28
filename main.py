@@ -12,10 +12,10 @@ from services import file_services, print_services
 
 def perform_task_1(deposits, withdrawals, task_1_config):
     """
-    This function perform Task 1.
+    This function performs Task 1.
     :param deposits: A list of dictionaries containing the content of deposits file.
     :param withdrawals: A list of dictionaries  containing the content of withdrawals file.
-    :param task_1_config: A dict containing Items of task_1 section of config file.
+    :param task_1_config: A dict containing items of task_1 section of config file.
     :return is_finished: if True: program should be finished,
                          if False: we need to show main menu again.
     """
@@ -26,13 +26,27 @@ def perform_task_1(deposits, withdrawals, task_1_config):
 
 def perform_task_2(withdrawals, task_2_config):
     """
-     This function perform Task 2.
+     This function performs Task 2.
     :param withdrawals: A list of dictionaries containing the content of withdrawals file.
-    :param task_2_config: A dict containing Items of task_2 section of config file.
+    :param task_2_config: A dict containing items of task_2 section of config file.
     :return is_finished: if True: program should be finished,
                          if False: we need to show main menu again.
     """
     print_services.print_highest_total_spender_per_category(withdrawals, task_2_config)
+    is_finished = print_services.print_are_you_done()
+    return is_finished
+
+
+def perform_task_3(deposits, withdrawals, task_3_config):
+    """
+     This function performs Task 3.
+    :param deposits: A list of dictionaries containing the content of deposits file.
+    :param withdrawals: A list of dictionaries containing the content of withdrawals file.
+    :param task_3_config: A dict containing items of task_3 section of config file.
+    :return is_finished: if True: program should be finished,
+                         if False: we need to show main menu again.
+    """
+    print_services.print_over_drafted_customers(deposits, withdrawals, task_3_config)
     is_finished = print_services.print_are_you_done()
     return is_finished
 
@@ -77,7 +91,15 @@ def main():
                 print_services.print_header_menu(header_dict, menu_dict)
                 continue
         elif selected_choice == "3":
-            print(f'selected choice is {selected_choice}')
+            # user wants to perform task 3
+            task_3_config_dict = config['task_3']
+            is_finished = perform_task_3(deposits, withdrawals, task_3_config_dict)
+            # After performing task 3, is_finished tells us if user want to exit or not
+            if is_finished:
+                break
+            else:
+                print_services.print_header_menu(header_dict, menu_dict)
+                continue
         elif selected_choice == "E" or selected_choice == "e":
             print("\nThank you for using this application.")
             break

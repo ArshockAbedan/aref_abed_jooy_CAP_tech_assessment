@@ -9,6 +9,9 @@
 """
 
 import decimal
+from datetime import datetime
+
+from services import utility_services
 
 
 def get_previous_month_balance(customer):
@@ -33,7 +36,7 @@ def calc_customers_balance(deposits, withdrawals):
     unique_customers = {}
     for deposit in deposits:
         customer_name = deposit['customerName']
-        amount = decimal.Decimal(deposit['amount'], )
+        amount = decimal.Decimal(deposit['amount'])
         time = deposit['time']
         if customer_name in unique_customers:
             unique_customers[customer_name] += amount
@@ -52,6 +55,23 @@ def calc_customers_balance(deposits, withdrawals):
     return unique_customers
 
 
+def get_unique_customers(deposits, withdrawals):
+    """
+    This function returns unique customers in withdrawals JSON file.
+    :param deposits: A list of dictionaries containing the content of deposits file.
+    :param withdrawals: A list of dictionaries containing the content of withdrawals file.
+    :return unique_customers: a set containing  all unique customers.
+    """
+    unique_customers = set()
+    for withdrawal in withdrawals:
+        customer_name = withdrawal['customerName']
+        unique_customers.add(customer_name)
+    for deposit in deposits:
+        customer_name = deposit['customerName']
+        unique_customers.add(customer_name)
+    return unique_customers
+
+
 def get_unique_categories(withdrawals):
     """
     This function returns unique categories in withdrawals JSON file.
@@ -65,33 +85,20 @@ def get_unique_categories(withdrawals):
     return unique_categories
 
 
-def get_unique_customers(withdrawals):
-    """
-    This function returns unique customers in withdrawals JSON file.
-    :param withdrawals: A list of dictionaries containing the content of withdrawals file.
-    :return unique_customers: a set containing  all unique customers.
-    """
-    unique_customers = set()
-    for withdrawal in withdrawals:
-        customer_name = withdrawal['customerName']
-        unique_customers.add(customer_name)
-    return unique_customers
-
-
-def get_unique_customers_by_category(withdrawals, needed_category):
+def get_unique_spenders_by_category(withdrawals, needed_category):
     """
     This function returns unique customers for a category in withdrawals JSON file.
     :param withdrawals: A list of dictionaries containing the content of withdrawals file.
     :param needed_category: A category.
     :return unique_customers: a set containing  all unique customers for this category.
     """
-    unique_customers = set()
+    unique_spenders = set()
     for withdrawal in withdrawals:
         customer_name = withdrawal['customerName']
         category = withdrawal['category']
         if category == needed_category:
-            unique_customers.add(customer_name)
-    return unique_customers
+            unique_spenders.add(customer_name)
+    return unique_spenders
 
 
 def get_total_amount_for_spender_per_category(withdrawals, needed_category, spender):
@@ -122,7 +129,7 @@ def calc_highest_total_spender_per_category(withdrawals):
     highest_spender_in_each_category_dict = {}  # {'Category': ['customer_name', Decimal('amount')]}
     unique_categories_set = get_unique_categories(withdrawals)
     for category in unique_categories_set:
-        unique_customers_set = get_unique_customers_by_category(withdrawals, category)
+        unique_customers_set = get_unique_spenders_by_category(withdrawals, category)
         highest_total_amount = decimal.Decimal(0.00)
         spender_with_highest_amount = ""
         for customer in unique_customers_set:
@@ -134,3 +141,70 @@ def calc_highest_total_spender_per_category(withdrawals):
         highest_spender_in_each_category_dict[category] = \
             [spender_with_highest_amount, highest_total_amount]
     return highest_spender_in_each_category_dict
+
+
+def get_all_transactions_per_customer(deposits, withdrawals, customer):
+    """
+    This function calculate expected output for task 3.
+    :param deposits: A list of dictionaries containing the content of deposits file.
+    :param withdrawals: A list of dictionaries containing the content of withdrawals file.
+    :param customer: A customer.
+    :return customer_transactions_sorted_list: a list containing all of customer's transactions
+                                               each of its item has 2 items;
+                                               first: transaction_time, second: transaction_details
+    """
+    customer_transactions = {}
+    for withdrawal in withdrawals:
+        customer_name = withdrawal['customerName']
+        amount = decimal.Decimal(withdrawal['amount'])
+        time_str = withdrawal['time']
+        time = datetime.fromisoformat(withdrawal['time'])
+        if customer_name == customer:
+            customer_transactions[time] = [amount, "withdrawal", time_str]
+
+    for deposit in deposits:
+        customer_name = deposit['customerName']
+        amount = decimal.Decimal(deposit['amount'])
+        time_str = deposit['time']
+        time = datetime.fromisoformat(deposit['time'])
+        if customer_name == customer:
+            customer_transactions[time] = [amount, "deposit", time_str]
+    customer_transactions_sorted_list = sorted(customer_transactions.items(), reverse=False)
+    return customer_transactions_sorted_list
+
+
+def calc_over_drafted_customers(deposits, withdrawals):
+    """
+    This function calculate expected output for task 3.
+    :param deposits: A list of dictionaries containing the content of deposits file.
+    :param withdrawals: A list of dictionaries containing the content of withdrawals file.
+    :return over_drafted_customers: a dictionary containing  all customers,
+                              who over drafted their account at any point in the month of December.
+    """
+    over_drafted_customers = {}
+    unique_customers = get_unique_customers(deposits, withdrawals)
+    for customer in unique_customers:
+        customer_transactions = get_all_transactions_per_customer(deposits, withdrawals, customer)
+        customer_total_balance = decimal.Decimal(0.00)
+        customer_max_over_drafted_balance = decimal.Decimal(0.00)
+        customer_max_over_drafted_time = ""
+        for transaction_time, transaction_details in customer_transactions:
+            transaction_amount = transaction_details[0]
+            transaction_type = transaction_details[1]
+            transaction_time_str = transaction_details[2]  # time (string)
+            if transaction_type == "deposit":
+                customer_total_balance += transaction_amount
+            else:
+                # it means transaction_type == "withdrawal"
+                customer_total_balance -= transaction_amount
+
+            if customer_total_balance < decimal.Decimal(0.00):
+                # more negative value means max
+                if customer_total_balance < customer_max_over_drafted_balance:
+                    customer_max_over_drafted_balance = customer_total_balance
+                    customer_max_over_drafted_time = transaction_time_str
+
+        if customer_max_over_drafted_balance < decimal.Decimal(0.00):
+            over_drafted_customers[customer] = \
+                [customer_max_over_drafted_time, customer_max_over_drafted_balance]
+    return over_drafted_customers

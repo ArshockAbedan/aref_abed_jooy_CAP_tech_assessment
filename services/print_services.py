@@ -76,13 +76,13 @@ def print_customers_balance(deposits, withdrawals, config_dict):
     :param config_dict: A dict containing items of task_1 section in config file.
     :return: None
     """
-    unique_customers_dict = financial_services.calc_customers_balance(deposits, withdrawals)
+    unique_customers_balance_dict = financial_services.calc_customers_balance(deposits, withdrawals)
 
     if config_dict['sorted'] == "1":
         if config_dict['descending'] == "1":
-            unique_customers_dict = utility_services.sort_dict_by_value(unique_customers_dict, True)
+            unique_customers_balance_dict = utility_services.sort_dict_by_value(unique_customers_balance_dict, True)
         else:
-            unique_customers_dict = utility_services.sort_dict_by_value(unique_customers_dict, False)
+            unique_customers_balance_dict = utility_services.sort_dict_by_value(unique_customers_balance_dict, False)
     print(config_dict['result_title'])
 
     customer_col_title = config_dict['customer_col_title']  # title of customer column
@@ -95,7 +95,7 @@ def print_customers_balance(deposits, withdrawals, config_dict):
     print("|", customer_col_title.ljust(customer_col_size), "|",
           str(balance_col_title).ljust(balance_col_size), "|")
     print_table_divider(customer_col_size, balance_col_size, adjuster)
-    for unique_customer_name, unique_customer_balance in unique_customers_dict.items():
+    for unique_customer_name, unique_customer_balance in unique_customers_balance_dict.items():
         print("|", unique_customer_name.ljust(customer_col_size),
               "|",
               str(unique_customer_balance).ljust(balance_col_size),
@@ -136,3 +136,16 @@ def print_are_you_done():
     else:
         is_done = True
     return is_done
+
+
+def print_over_drafted_customers(deposits, withdrawals, config_dict):
+    """
+    This function prints expected output for Task 3.
+    :param deposits: A list of dictionaries containing the content of deposits file.
+    :param withdrawals: A list of dictionaries containing the content of withdrawals file.
+    :param config_dict: A dict containing items of task_3 section in config file.
+    :return: None
+    """
+    over_drafted_customers_dict = financial_services.calc_over_drafted_customers(deposits, withdrawals)
+    print(over_drafted_customers_dict)
+
