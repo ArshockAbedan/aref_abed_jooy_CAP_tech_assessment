@@ -58,19 +58,20 @@ def calc_customers_balance(deposits, withdrawals):
     return unique_customers
 
 
-def delete_outdated_transactions(transactions_dict, month_int):
+def delete_outdated_transactions(transactions_dict, month, year):
     """
-    This function deletes transactions that are not in 'month_int' month.
+    This function deletes transactions that are not in month and year.
     :param transactions_dict: A list of dictionaries containing
                               the content of either deposits or withdrawals JSON files.
-    :param month_int: An integer representing a month.
+    :param month: An integer representing a month.
+    :param year: An integer representing a year.
     :return transactions_dict: A list of dictionaries containing
-                               all transactions within just 'month_int' month.
+                               all transactions within just requested month and year.
     """
     to_be_deleted_transactions = []
     for transaction in transactions_dict:
         time = datetime.fromisoformat(transaction['time'])
-        if time.month != month_int:
+        if not (time.month == month and time.year == year):
             to_be_deleted_transactions.append(transaction)
 
     for to_be_deleted_transaction in to_be_deleted_transactions:
@@ -142,25 +143,19 @@ def get_total_amount_for_spender_per_category(withdrawals, needed_category, spen
     return total_amount
 
 
-def calc_highest_total_spender_per_category(withdrawals, *args, **kwargs):
+def calc_highest_total_spender_per_category(withdrawals, requested_month, requested_year):
     """
     This function calculate expected output for task 2.
     :param withdrawals: A list of dictionaries containing the content of withdrawals file.
-    :param args: requested_month: number of month which its transactions are needed only.
+    :param requested_month: number of month which its transactions are needed only.
+    :param requested_year: number of year which its transactions are needed only.
     :return highest_spender_in_each_category_dict: a dictionary containing  highest total spender
                                                    in each payment category.
     """
     highest_spender_in_each_category_dict = {}  # {'Category': ['customer_name', Decimal('amount')]}
 
-    requested_month = kwargs.get('requested_month', None)
-
-    # requested_month = 0 means all months are needed.
-    if requested_month == 0:
-        requested_month = None
-
-    if requested_month:
-        # Prepossessing - Delete transactions that are outdated.
-        withdrawals = delete_outdated_transactions(withdrawals, requested_month)
+    # Prepossessing - Delete transactions that are outdated.
+    withdrawals = delete_outdated_transactions(withdrawals, requested_month, requested_year)
 
     unique_categories_set = get_unique_categories(withdrawals)
 
@@ -213,27 +208,17 @@ def get_all_transactions_per_customer(deposits, withdrawals, customer):
     return customer_transactions_sorted_list
 
 
-def calc_over_drafted_customers(deposits, withdrawals, *args, **kwargs):
+def calc_over_drafted_customers(deposits, withdrawals, requested_month, requested_year):
     """
     This function calculate expected output for task 3.
     :param deposits: A list of dictionaries containing the content of deposits file.
     :param withdrawals: A list of dictionaries containing the content of withdrawals file.
-    :param args: requested_month: number of month which its transactions are needed only.
+    :param requested_month: number of month which its transactions are needed only.
+    :param requested_year: number of year which its transactions are needed only.
     :return over_drafted_customers: a dictionary containing  all customers,
                               who over drafted their account at any point in the month of December.
     """
     over_drafted_customers = {}
-
-    requested_month = kwargs.get('requested_month', None)
-
-    # requested_month = 0 means all months are needed.
-    if requested_month == 0:
-        requested_month = None
-
-    if requested_month:
-        # Prepossessing - Delete transactions that are outdated.
-        deposits = delete_outdated_transactions(deposits, requested_month)
-        withdrawals = delete_outdated_transactions(withdrawals, requested_month)
 
     unique_customers = get_unique_customers(deposits, withdrawals)
     for customer in unique_customers:
@@ -254,8 +239,11 @@ def calc_over_drafted_customers(deposits, withdrawals, *args, **kwargs):
             if customer_total_balance < DECIMAL_ZERO:
                 # more negative value means max
                 if customer_total_balance < customer_max_over_drafted_balance:
-                    customer_max_over_drafted_balance = customer_total_balance
-                    customer_max_over_drafted_time = transaction_time_str
+                    if transaction_time.year == requested_year and \
+                            transaction_time.month == requested_month:
+                        # Only December 2017
+                        customer_max_over_drafted_balance = customer_total_balance
+                        customer_max_over_drafted_time = transaction_time_str
 
         if customer_max_over_drafted_balance < DECIMAL_ZERO:
             over_drafted_customers[customer] = \

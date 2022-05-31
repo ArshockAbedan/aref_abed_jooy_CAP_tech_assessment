@@ -19,6 +19,3 @@ def sort_dict_by_value(unsorted_dict, reverse=False):
     return dict(sorted(unsorted_dict.items(), key=lambda x: x[1], reverse=reverse))
 
 
-def get_key_of_max_value_in_dict(input_dict):
-    return max(input_dict, key=input_dict.get)
-

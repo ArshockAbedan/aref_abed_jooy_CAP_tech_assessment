@@ -60,12 +60,14 @@ balance_col_size = Size of 'Balance' column in expected output.
 adjuster = Adjuster that adjusts size of whole expected table.
 
 [task_2]
-requested_month = Number of requested month, 0 means all months.
+requested_month = Number of requested month.
+requested_year = Number of requested year.
 result_title = Title of results for Task 2.
 final_msg_per_category = The massege for each category in expected output.
 
 [task_3]
-requested_month = Number of requested month, 0 means all months.
+requested_month = Number of requested month.
+requested_year = Number of requested year.
 result_title =T itle of results for Task 3.
 final_msg_per_customer = The massege for each customer in expected output.
 
@@ -78,4 +80,6 @@ accepted_options = acceptable options to finish the program.
 ## Assumptions
 
 - A previous balance of zero for each customer is considered in task 1. However, all transactions are considered.
-- Transactions outside of December month are ignored in task 2, 3.
+- For task 3, all transactions are considered. 
+  However, the program prints all customers, who over drafted their account at any point in the month of December only.
+

@@ -140,9 +140,11 @@ def print_highest_total_spender_per_category(withdrawals, config_dict):
     :return: None
     """
     requested_month = int(config_dict['requested_month'])
+    requested_year = int(config_dict['requested_year'])
     highest_spender_in_each_category_dict = \
         financial_services.calc_highest_total_spender_per_category(withdrawals,
-                                                                   requested_month=requested_month)
+                                                                   requested_month,
+                                                                   requested_year)
     print(config_dict['result_title'] + "\n")
 
     i = 1  # counter for categories
@@ -160,10 +162,12 @@ def print_over_drafted_customers(deposits, withdrawals, config_dict):
     :return: None
     """
     requested_month = int(config_dict['requested_month'])
+    requested_year = int(config_dict['requested_year'])
     over_drafted_customers_dict = \
         financial_services.calc_over_drafted_customers(deposits,
                                                        withdrawals,
-                                                       requested_month=requested_month)
+                                                       requested_month,
+                                                       requested_year)
     print(config_dict['result_title'] + "\n")
 
     i = 1  # counter for customer

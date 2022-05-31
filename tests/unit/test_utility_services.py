@@ -16,6 +16,3 @@ def test_sort_dict_by_value(my_dict):
     assert utility_services.sort_dict_by_value(unsorted_dict=my_dict, reverse=False) == dict_out
     assert utility_services.sort_dict_by_value(unsorted_dict=my_dict, reverse=True) == dict_out_desc
 
-
-def test_get_key_of_max_value_in_dict(my_dict):
-    assert utility_services.get_key_of_max_value_in_dict(my_dict) == 3

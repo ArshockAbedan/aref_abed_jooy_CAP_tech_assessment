@@ -112,14 +112,19 @@ def test_get_unique_customers(my_deposits, my_withdrawals):
                                 my_withdrawals) == output_withdrawals
 
 
+def test_delete_outdated_transactions(my_deposits):
+    assert delete_outdated_transactions(my_deposits, 11, 2017) == {}
+
+
 def test_calc_highest_total_spender_per_category(my_withdrawals):
     output = {'Bill': ['Sophie Olga', Decimal('445.17')],
               'ATM': ['Michael P. Taylor', Decimal('412.27')],
               'Debit Payment': ['Glen M. Skipper', Decimal('979.30')]}
-    assert calc_highest_total_spender_per_category(my_withdrawals) == output
-    output_empty = {}
-    assert calc_highest_total_spender_per_category(my_withdrawals,
-                                                   requested_month=11) == output_empty
+    assert calc_highest_total_spender_per_category(my_withdrawals, 12, 2017) == output
+    output = {'ATM': ['Michael P. Taylor', Decimal('412.27')],
+              'Bill': ['Sophie Olga', Decimal('445.17')],
+              'Debit Payment': ['Glen M. Skipper', Decimal('979.30')]}
+    assert calc_highest_total_spender_per_category(my_withdrawals, 11, 2017) == {}
 
 
 def test_get_total_amount_for_spender_per_category(my_withdrawals):
@@ -157,20 +162,21 @@ def test_get_all_transactions_per_customer(my_deposits, my_withdrawals):
 
 
 def test_delete_outdated_transactions(my_deposits):
-    output_list = [{'amount': '210.00',
-                    'customerName': 'Michael P. Taylor',
-                    'time': '2017-11-21 11:00:00'}]
-    assert delete_outdated_transactions(my_deposits, 11) == output_list
+    output = [{'amount': '210.00',
+               'customerName': 'Michael P. Taylor',
+               'time': '2017-11-21 11:00:00'}]
+    assert delete_outdated_transactions(my_deposits, 11, 2017) == output
 
 
 def test_calc_over_drafted_customers(my_deposits, my_withdrawals):
     output = {'Glen M. Skipper': ['2017-12-07 02:20:00', Decimal('-150.89')],
               'Michael P. Taylor': ['2017-12-03 11:00:00', Decimal('-60.05')]}
-    assert calc_over_drafted_customers(my_deposits, my_withdrawals) == output
+    assert calc_over_drafted_customers(my_deposits, my_withdrawals, 12, 2017) == output
     empty_output = {}
     assert calc_over_drafted_customers(my_deposits,
                                        my_withdrawals,
-                                       requested_month=11) == empty_output
+                                       requested_month=11,
+                                       requested_year=2017) == empty_output
 
 
 def test_get_previous_month_balance():
