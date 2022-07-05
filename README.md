@@ -6,7 +6,15 @@ perhaps providing them with a menu is a better approach here.
 
 ### How to run this application?
 
-There is a Dockerfile that can be used to run the program.
+There is a Dockerfile that can be used to run the program. After running the "Dockerfile",
+a "arefabedjooycaptechassessment" image will be created on your Docker.
+
+The program can be run by below command
+
+```
+docker run -i -t arefabedjooycaptechassessment
+```
+
 
 ### Is the program configurable?
 
